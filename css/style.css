@@ -177,7 +177,7 @@ a {
       rgba(0,0,0,.82),
       rgba(0,0,0,.12)
     ),
-    url("../img/hero/canarias.jpg");
+   url("../img/hero/canarias-hero.jpg");
 
   background-size: cover;
   background-position: center;
@@ -349,6 +349,38 @@ a {
 
   padding:
     110px 0;
+}
+
+.intro::after {
+
+  content: "";
+
+  display: block;
+
+  width: min(
+    calc(100% - 48px),
+    var(--container)
+  );
+
+  height: 360px;
+
+  margin:
+    60px auto 0;
+
+  border-radius:
+    var(--radius);
+
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.30),
+      rgba(0,0,0,.05)
+    ),
+    url("../img/hero/canarias-buceo.jpg");
+
+  background-size: cover;
+
+  background-position: center;
 }
 
 .intro-grid {
