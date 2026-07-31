@@ -1,875 +1,741 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
 
   <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-
->
-
-  <title>Qué hacer en Canarias | Guía de viaje, playas, gastronomía y pueblos</title>
-
-<meta
-name="description"
-content="Descubre qué hacer en Canarias. Playas, pueblos, gastronomía, excursiones y lugares que visitar en Fuerteventura, Lanzarote, Tenerife, Gran Canaria y todas las islas."
-
->
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #171717;
-      background: #f5f4f1;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      color: white;
-    }
-
-    .header-inner {
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: -.03em;
-    }
-
-    .logo span {
-      font-weight: 400;
-      opacity: .75;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-    }
-
-    nav a {
-      opacity: .85;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 680px;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
-      overflow: hidden;
-      color: white;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,.25),
-          rgba(0,0,0,.72)
-        ),
-        url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2000&q=85")
-        center / cover no-repeat;
-    }
-
-    .hero-content {
-      width: 100%;
-      padding: 110px 0 90px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: .16em;
-      font-weight: 700;
-      margin-bottom: 18px;
-      opacity: .8;
-    }
-
-    .hero h1 {
-      max-width: 900px;
-      font-size: clamp(52px, 8vw, 100px);
-      line-height: .92;
-      letter-spacing: -.055em;
-      margin-bottom: 28px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      font-size: 20px;
-      line-height: 1.65;
-      color: rgba(255,255,255,.88);
-    }
-
-    /* INTRO */
-
-    .section {
-      padding: 100px 0;
-    }
-
-    .intro {
-      max-width: 820px;
-    }
-
-    .section-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .15em;
-      margin-bottom: 16px;
-      color: #777;
-    }
-
-    h2 {
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1;
-      letter-spacing: -.045em;
-      margin-bottom: 25px;
-    }
-
-    .intro p {
-      font-size: 18px;
-      color: #555;
-      max-width: 760px;
-    }
-
-    /* ISLAS */
-
-    .islas-section {
-      background: #181818;
-      color: white;
-    }
-
-    .islas-section .section-label {
-      color: #999;
-    }
-
-    .islas-section > .container > p {
-      max-width: 700px;
-      color: #aaa;
-      margin-bottom: 45px;
-    }
-
-    .islas-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .isla {
-      min-height: 290px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 25px;
-      color: white;
-      background-size: cover;
-      background-position: center;
-      transition: transform .25s ease;
-    }
-
-    .isla::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.82),
-          rgba(0,0,0,.05)
-        );
-    }
-
-    .isla:hover {
-      transform: translateY(-5px);
-    }
-
-    .isla-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .isla-number {
-      display: block;
-      font-size: 11px;
-      opacity: .55;
-      margin-bottom: 7px;
-      letter-spacing: .12em;
-    }
-
-    .isla h3 {
-      font-size: 29px;
-      line-height: 1;
-      margin-bottom: 7px;
-    }
-
-    .isla span:last-child {
-      font-size: 13px;
-      opacity: .7;
-    }
-
-    .fuerteventura {
-      background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .lanzarote {
-      background-image: url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .gran-canaria {
-      background-image: url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .tenerife {
-      background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .la-palma {
-      background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .la-gomera {
-      background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .el-hierro {
-      background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .la-graciosa {
-      background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    /* TEMAS */
-
-    .temas {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 45px;
-    }
-
-    .tema {
-      background: white;
-      padding: 32px 25px;
-      border: 1px solid #e5e3df;
-      transition: transform .2s ease;
-    }
-
-    .tema:hover {
-      transform: translateY(-4px);
-    }
-
-    .tema strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-
-    .tema p {
-      font-size: 14px;
-      color: #777;
-    }
-
-    /* CTA */
-
-    .cta {
-      background: #ddd7ca;
-      padding: 100px 0;
-    }
-
-    .cta-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
-    }
-
-    .cta h2 {
-      max-width: 700px;
-      margin-bottom: 0;
-    }
-
-    .button {
-      display: inline-block;
-      background: #171717;
-      color: white;
-      padding: 17px 27px;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .button:hover {
-      background: #333;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #111;
-      color: white;
-      padding: 45px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      color: #777;
-      font-size: 13px;
-    }
-
-    .footer-logo {
-      color: white;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-
-      .islas-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .temas {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: min(100% - 30px, 1180px);
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        min-height: 600px;
-      }
-
-      .hero-content {
-        padding-bottom: 65px;
-      }
-
-      .hero h1 {
-        font-size: 55px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .islas-grid,
-      .temas {
-        grid-template-columns: 1fr;
-      }
-
-      .isla {
-        min-height: 240px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-      }
-
-    }
-
-  </style>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Qué hacer en Canarias | Guía de viajes</title>
+
+  <meta
+    name="description"
+    content="Descubre qué hacer en Canarias: playas, gastronomía, pueblos, lugares imprescindibles y experiencias en Fuerteventura, Lanzarote, Gran Canaria, Tenerife, La Palma, La Gomera, El Hierro y La Graciosa."
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
 
 </head>
 
+
 <body>
 
-<header>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
 
   <div class="container header-inner">
 
-```
-<a href="index.html" class="logo">
-  QUÉ HACER <span>EN CANARIAS</span>
-</a>
+    <a href="index.html" class="logo">
+      QUÉ HACER <span>EN CANARIAS</span>
+    </a>
 
-<nav>
+    <nav class="main-nav">
 
-  <a href="#islas">Islas</a>
+      <a href="canarias/">
+        Canarias
+      </a>
 
-  <a href="#ideas">Ideas</a>
+      <a href="#islas">
+        Islas
+      </a>
 
-  <a href="canarias/">
-    Canarias
-  </a>
+      <a href="#experiencias">
+        Experiencias
+      </a>
 
-</nav>
-```
+    </nav>
 
   </div>
 
 </header>
 
+
+
 <main>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-  <div class="container hero-content">
+  <div class="hero-content">
 
-```
-<span class="eyebrow">
-  GUÍA DE CANARIAS
-</span>
+    <span class="hero-kicker">
+      GUÍA PARA DESCUBRIR LAS ISLAS
+    </span>
 
-<h1>
-  Qué hacer<br>
-  en Canarias
-</h1>
+    <h1>
+      Canarias<br>
+      se vive fuera.
+    </h1>
 
-<p>
-  Playas, pueblos, gastronomía, naturaleza y lugares
-  que merece la pena descubrir en las islas Canarias.
-</p>
-```
+    <p class="hero-text">
+      Playas, pueblos, comida, paisajes y lugares que
+      merecen una escapada. Descubre qué hacer en cada
+      rincón de las islas.
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        href="canarias/"
+        class="button button-primary"
+      >
+        Explorar Canarias →
+      </a>
+
+      <a
+        href="#islas"
+        class="button button-secondary"
+      >
+        Ver las islas
+      </a>
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- INTRO -->
 
-<section class="section">
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
 
   <div class="container">
 
-```
-<div class="intro">
+    <div class="intro-grid">
 
-  <span class="section-label">
-    DESCUBRE LAS ISLAS
-  </span>
+      <div>
 
-  <h2>
-    Canarias es mucho más que sol y playa.
-  </h2>
+        <span class="section-label">
+          MÁS QUE SOL Y PLAYA
+        </span>
 
-  <p>
-    Cada isla tiene su propia personalidad. Desde las
-    playas de Fuerteventura hasta los volcanes de
-    Lanzarote, los bosques de La Gomera o los pueblos
-    de Tenerife y Gran Canaria.
-  </p>
+      </div>
 
-</div>
-```
+      <div>
+
+        <h2>
+          Ocho islas.
+          Miles de formas
+          de disfrutarlas.
+        </h2>
+
+        <p>
+          Canarias tiene mucho más que playas.
+          Hay pueblos escondidos, volcanes, mercados,
+          restaurantes, senderos, miradores y rincones
+          que muchas veces pasan desapercibidos.
+        </p>
+
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- ISLAS -->
+
+
+<!-- =====================================================
+     ISLAS
+===================================================== -->
 
 <section
   id="islas"
-  class="section islas-section"
+  class="islands"
 >
 
   <div class="container">
 
-```
-<span class="section-label">
-  LAS ISLAS
-</span>
+    <div class="section-heading">
 
-<h2>
-  ¿A dónde quieres ir?
-</h2>
+      <div>
 
-<p>
-  Elige una isla y descubre qué hacer, dónde comer,
-  qué playas visitar y qué pueblos merece la pena conocer.
-</p>
+        <span class="section-label">
+          ELIGE TU ISLA
+        </span>
 
+        <h2>
+          ¿Dónde vamos?
+        </h2>
 
-<div class="islas-grid">
+      </div>
 
-
-  <a
-    href="fuerteventura/"
-    class="isla fuerteventura"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">01</span>
-
-      <h3>
-        Fuerteventura
-      </h3>
-
-      <span>
-        Playas · Pueblos · Gastronomía
-      </span>
+      <p>
+        Explora cada isla y descubre ideas para
+        aprovecharla al máximo.
+      </p>
 
     </div>
 
-  </a>
 
 
-  <a
-    href="lanzarote/"
-    class="isla lanzarote"
-  >
+    <div class="islands-grid">
 
-    <div class="isla-content">
 
-      <span class="isla-number">02</span>
+      <!-- FUERTEVENTURA -->
 
-      <h3>
-        Lanzarote
-      </h3>
+      <a
+        href="fuerteventura/"
+        class="island-card"
+      >
 
-      <span>
-        Volcanes · Playas · Lugares
-      </span>
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"
+          alt="Playa de Fuerteventura"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            01
+          </span>
+
+          <h3>
+            Fuerteventura
+          </h3>
+
+          <p>
+            Playas, pueblos, gastronomía y naturaleza.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- LANZAROTE -->
+
+      <a
+        href="lanzarote/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1200&q=85"
+          alt="Paisaje volcánico de Lanzarote"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            02
+          </span>
+
+          <h3>
+            Lanzarote
+          </h3>
+
+          <p>
+            Volcanes, playas y paisajes únicos.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- GRAN CANARIA -->
+
+      <a
+        href="gran-canaria/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85"
+          alt="Paisaje de Gran Canaria"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            03
+          </span>
+
+          <h3>
+            Gran Canaria
+          </h3>
+
+          <p>
+            Montaña, ciudad, playas y gastronomía.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- TENERIFE -->
+
+      <a
+        href="tenerife/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&w=1400&q=85"
+          alt="Paisaje de Tenerife"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            04
+          </span>
+
+          <h3>
+            Tenerife
+          </h3>
+
+          <p>
+            El Teide, pueblos, costa y vida local.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- LA PALMA -->
+
+      <a
+        href="la-palma/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=85"
+          alt="Naturaleza de La Palma"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            05
+          </span>
+
+          <h3>
+            La Palma
+          </h3>
+
+          <p>
+            Bosques, volcanes y cielos increíbles.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- LA GOMERA -->
+
+      <a
+        href="la-gomera/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85"
+          alt="Paisaje de La Gomera"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            06
+          </span>
+
+          <h3>
+            La Gomera
+          </h3>
+
+          <p>
+            Senderos, naturaleza y pueblos.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- EL HIERRO -->
+
+      <a
+        href="el-hierro/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"
+          alt="Paisaje natural de El Hierro"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            07
+          </span>
+
+          <h3>
+            El Hierro
+          </h3>
+
+          <p>
+            Tranquilidad, naturaleza y océano.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- LA GRACIOSA -->
+
+      <a
+        href="la-graciosa/"
+        class="island-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"
+          alt="Playa de La Graciosa"
+          loading="lazy"
+        >
+
+        <div class="island-content">
+
+          <span class="island-number">
+            08
+          </span>
+
+          <h3>
+            La Graciosa
+          </h3>
+
+          <p>
+            Playas vírgenes y ritmo tranquilo.
+          </p>
+
+        </div>
+
+      </a>
+
 
     </div>
-
-  </a>
-
-
-  <a
-    href="gran-canaria/"
-    class="isla gran-canaria"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">03</span>
-
-      <h3>
-        Gran Canaria
-      </h3>
-
-      <span>
-        Naturaleza · Ciudades · Playas
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <a
-    href="tenerife/"
-    class="isla tenerife"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">04</span>
-
-      <h3>
-        Tenerife
-      </h3>
-
-      <span>
-        Teide · Pueblos · Excursiones
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <a
-    href="la-palma/"
-    class="isla la-palma"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">05</span>
-
-      <h3>
-        La Palma
-      </h3>
-
-      <span>
-        Senderismo · Volcanes · Naturaleza
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <a
-    href="la-gomera/"
-    class="isla la-gomera"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">06</span>
-
-      <h3>
-        La Gomera
-      </h3>
-
-      <span>
-        Bosques · Senderos · Pueblos
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <a
-    href="el-hierro/"
-    class="isla el-hierro"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">07</span>
-
-      <h3>
-        El Hierro
-      </h3>
-
-      <span>
-        Naturaleza · Mar · Tranquilidad
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <a
-    href="la-graciosa/"
-    class="isla la-graciosa"
-  >
-
-    <div class="isla-content">
-
-      <span class="isla-number">08</span>
-
-      <h3>
-        La Graciosa
-      </h3>
-
-      <span>
-        Playas · Bicicleta · Desconexión
-      </span>
-
-    </div>
-
-  </a>
-
-
-</div>
-```
 
   </div>
 
 </section>
 
-<!-- IDEAS -->
+
+
+<!-- =====================================================
+     EXPERIENCIAS
+===================================================== -->
 
 <section
-  id="ideas"
-  class="section"
+  id="experiencias"
+  class="categories"
 >
 
   <div class="container">
 
-```
-<span class="section-label">
-  IDEAS PARA TU VIAJE
-</span>
+    <div class="categories-heading">
 
-<h2>
-  Busca qué hacer.
-</h2>
+      <span class="section-label">
+        BUSCA UNA IDEA
+      </span>
 
-<div class="temas">
+      <h2>
+        ¿Qué te apetece hacer?
+      </h2>
 
-
-  <a
-    href="fuerteventura/que-hacer/"
-    class="tema"
-  >
-
-    <strong>
-      Qué hacer
-    </strong>
-
-    <p>
-      Planes, excursiones y lugares que visitar.
-    </p>
-
-  </a>
+    </div>
 
 
-  <a
-    href="fuerteventura/comer/"
-    class="tema"
-  >
 
-    <strong>
-      Dónde comer
-    </strong>
-
-    <p>
-      Gastronomía local y sitios donde comer.
-    </p>
-
-  </a>
+    <div class="categories-grid">
 
 
-  <a
-    href="fuerteventura/playas/"
-    class="tema"
-  >
+      <a
+        href="fuerteventura/que-hacer/"
+        class="category"
+      >
 
-    <strong>
-      Playas
-    </strong>
+        <span>→</span>
 
-    <p>
-      Playas, calas y rincones junto al mar.
-    </p>
+        <h3>
+          Qué hacer
+        </h3>
 
-  </a>
+      </a>
 
 
-  <a
-    href="fuerteventura/pueblos/"
-    class="tema"
-  >
+      <a
+        href="fuerteventura/comer/"
+        class="category"
+      >
 
-    <strong>
-      Pueblos
-    </strong>
+        <span>→</span>
 
-    <p>
-      Pueblos y lugares con encanto.
-    </p>
+        <h3>
+          Comer
+        </h3>
 
-  </a>
+      </a>
 
 
-</div>
-```
+      <a
+        href="fuerteventura/playas/"
+        class="category"
+      >
+
+        <span>→</span>
+
+        <h3>
+          Playas
+        </h3>
+
+      </a>
+
+
+      <a
+        href="fuerteventura/pueblos/"
+        class="category"
+      >
+
+        <span>→</span>
+
+        <h3>
+          Pueblos
+        </h3>
+
+      </a>
+
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- CTA -->
 
-<section class="cta">
 
-  <div class="container cta-inner">
+<!-- =====================================================
+     DESTACADO
+===================================================== -->
 
-```
-<h2>
-  Empieza a descubrir Canarias.
-</h2>
+<section class="featured">
 
-<a
-  href="canarias/"
-  class="button"
->
-  Explorar Canarias →
-</a>
-```
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="section-label">
+          PARA EMPEZAR
+        </span>
+
+        <h2>
+          Una isla,
+          un plan.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="featured-grid">
+
+
+      <a
+        href="fuerteventura/"
+        class="featured-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85"
+          alt="Playa en Canarias"
+          loading="lazy"
+        >
+
+        <div class="featured-content">
+
+          <small>
+            FUERTEVENTURA
+          </small>
+
+          <h3>
+            Una isla para perderse sin mirar el reloj.
+          </h3>
+
+          <p>
+            Descubre playas, pueblos y rincones de la isla.
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        href="fuerteventura/que-hacer/"
+        class="featured-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85"
+          alt="Paisaje de Canarias"
+          loading="lazy"
+        >
+
+        <div class="featured-content">
+
+          <small>
+            GUÍA
+          </small>
+
+          <h3>
+            10 cosas que hacer.
+          </h3>
+
+          <p>
+            Ideas para tu próximo día.
+          </p>
+
+        </div>
+
+      </a>
+
+
+    </div>
 
   </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="container">
+
+  <div class="cta">
+
+    <span class="section-label">
+      CANARIAS
+    </span>
+
+    <h2>
+      Tu próxima escapada empieza aquí.
+    </h2>
+
+    <p>
+      Explora las islas, encuentra un plan y descubre
+      lugares que quizá todavía no conocías.
+    </p>
+
+    <a
+      href="canarias/"
+      class="button button-primary"
+    >
+      Explorar la guía →
+    </a>
+
+  </div>
+
+</section>
+
 
 </main>
 
-<footer>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
 
   <div class="container footer-inner">
 
-```
-<div>
+    <div>
 
-  <div class="footer-logo">
-    QUÉ HACER EN CANARIAS
-  </div>
+      <div class="footer-logo">
+        QUÉ HACER EN CANARIAS
+      </div>
 
-  <div>
-    Guía para descubrir las islas.
-  </div>
+      <div class="footer-text">
+        Una guía para descubrir las islas.
+      </div>
 
-</div>
+    </div>
 
-<div>
-  © 2026 Qué Hacer en Canarias
-</div>
-```
+
+    <div class="footer-links">
+
+      <a href="canarias/">
+        Canarias
+      </a>
+
+      <a href="fuerteventura/">
+        Fuerteventura
+      </a>
+
+      <a href="lanzarote/">
+        Lanzarote
+      </a>
+
+      <a href="tenerife/">
+        Tenerife
+      </a>
+
+    </div>
 
   </div>
 
 </footer>
+
 
 </body>
 
